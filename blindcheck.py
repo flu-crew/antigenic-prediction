@@ -67,6 +67,7 @@ getCV(svmReg)
 print(svmReg.score(trainX, trainY))
 
 #Ada boosted decisions tree
+from sklearn.tree import DecisionTreeRegressor
 adaReg = AdaBoostRegressor(DecisionTreeRegressor(max_depth= 442, max_features = 476), n_estimators=221)	#optimized
 adaReg.fit(trainX, trainY)
 getCV(adaReg)

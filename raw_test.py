@@ -6,11 +6,9 @@ import numpy as np
 from features import rawDataProcess
 
 dp = fm.rawDataProcess()
-dp.loadFoldChangeTable("raw_data/master_short.fasta", "raw_data/carine_final.csv")
+dp.loadFoldChangeTable("raw_data/master_short.fasta", "raw_data/carine_corrected_titers.csv")
 dp.defineFeatures()
 dp.exportFeatures("raw_data/carine_feature_set.csv")
-dp.createUnknownComparison("raw_data/cross_experimental.fasta")
-dp.exportTestSetFeatures("raw_data/crosscarine.csv")
 dp.createUnknownComparison("raw_data/retest_final.fasta")
 dp.exportTestSetFeatures("raw_data/retestset_final.csv")
 
@@ -23,12 +21,9 @@ regressor.trainMultilayerPerceptron()
 #regressor.getCV()
 regressor.printSplitTest()
 regressor.visualizePerformance()
-regressor.predictUnknownSet("raw_data/crosscarine.csv")
-#regressor.exportUnknownSet("raw_data/pred_crosscarine.csv")
-regressor.visualizePredictions()
 regressor.predictUnknownSet("raw_data/retestset_final.csv")
 regressor.exportUnknownSet("raw_data/pred_retest_final.csv")
-#regressor.exportFeatureImportance("rawImportance.csv")
+regressor.exportFeatureImportance("rawImportance.csv")
 #regressor.getCV()
 regressor.visualizePredictions()
 
