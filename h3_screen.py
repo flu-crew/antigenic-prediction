@@ -15,7 +15,7 @@ from features import rawDataProcess
 
 #Training set
 dp = fm.rawDataProcess()
-dp.loadFoldChangeTable("raw_data/master_short.fasta", "raw_data/carine_final.csv")
+dp.loadFoldChangeTable("raw_data/master_short.fasta", "raw_data/carine_corrected_titers.csv")
 dp.defineFeatures()
 dp.exportFeatures("raw_data/carine_feature_set.csv")
 dp.createTestSet("raw_data/screen/h3clusterI.fasta", selfCompare = False)
@@ -39,7 +39,7 @@ regressor.trainAdaBoostedRegressor()
 regressor.trainMultilayerPerceptron()
 regressor.printEvaluationMetrics()
 regressor.visualizePerformance()
-#regressor.exportFeatureImportance("importances.csv")
+regressor.exportFeatureImportance("corrected_importances.csv")
 regressor.predictUnknownSet("raw_data/screen/screen_h3clusterI.csv")
 regressor.exportUnknownSet("raw_data/screen/screen_h3clusterI_pred.csv")
 regressor.predictUnknownSet("raw_data/screen/screen_h3clusterIV.csv")

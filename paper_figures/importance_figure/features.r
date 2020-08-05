@@ -1,7 +1,7 @@
 library(ggplot2)
 library(viridis)
 
-df <- read.csv("rawImportance.csv")
+df <- read.csv("importances.csv")
 
 #Attempt to aggregate feature importances
 #library(reshape2)
@@ -49,9 +49,10 @@ dev.off()
 #install.packages("colourvalues")
 library(colourvalues)
 merged$col <- colour_values(merged$Imp, palette = "magma", include_alpha = FALSE)
+write.csv(merged,"colors.csv")
 
 #PRINT SELE and COLOR statements
 for (row in 1:nrow(merged)) {
-  print(paste("select resi", merged$feature_pos))
+  print(paste("select resi", merged$feature_pos,";"))
 }
 

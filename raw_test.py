@@ -35,7 +35,7 @@ regressor.visualizePredictions()
 
 dp = fm.rawDataProcess()
 #dp.loadFoldChangeTable("raw_data/master.fasta", "raw_data/marcus_final.csv")
-dp.loadFoldChangeTable("raw_data/master_short.fasta", "raw_data/carine_final.csv")
+dp.loadFoldChangeTable("raw_data/master_short.fasta", "raw_data/carine_corrected_titers.csv")
 dp.defineFeatures()
 dp.exportFeatures("raw_data/carine_feature_set.csv")
 dp.createUnknownComparison("raw_data/screen/h3clusterIVA.fasta")
