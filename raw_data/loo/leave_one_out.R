@@ -7,7 +7,7 @@ mdf <- melt(df)
 #Tranpose important data
 tiff('test.tiff', units="mm", width=178, height=133.5, res=300, compression = 'lzw')
 
-ggplot(data = mdf, aes(x = variable, y = value, fill = variable)) +
+ggplot(data = mdf, aes(x = variable, y = value, fill = variable, alpha=0.7)) +
   geom_violin() +
   geom_boxplot(width=0.1) +
   xlab("Regressor") +

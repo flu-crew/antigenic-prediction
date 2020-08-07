@@ -108,6 +108,7 @@ for row in antigenIndex:
 	i += 1
 outFile.close()
 
+###STOP EXECUTION HERE UNLESS DOING MDS WORK
 
 #Correct broken ref files
 i = 0
@@ -125,7 +126,7 @@ for row in antigenIndex:
 
 #I AM HERE	
 #Calculate differences in terms of distances on the map overlayed
-outFile = open("raw_data/loo3/dist_summary.tsv","w+")
+outFile = open("raw_data/loo3/xxxdist_summary.tsv","w+")
 outFile.write("seq	rf	ada	mlp	ens\n")
 #h3Colors = pd.read_csv("data/mergedH3Carine/motiflist.csv", header = None)
 i = 0

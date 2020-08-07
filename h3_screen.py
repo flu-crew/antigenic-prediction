@@ -39,7 +39,7 @@ regressor.trainAdaBoostedRegressor()
 regressor.trainMultilayerPerceptron()
 regressor.printEvaluationMetrics()
 regressor.visualizePerformance()
-regressor.exportFeatureImportance("corrected_importances.csv")
+#regressor.exportFeatureImportance("corrected_importances.csv")
 regressor.predictUnknownSet("raw_data/screen/screen_h3clusterI.csv")
 regressor.exportUnknownSet("raw_data/screen/screen_h3clusterI_pred.csv")
 regressor.predictUnknownSet("raw_data/screen/screen_h3clusterIV.csv")
@@ -56,3 +56,14 @@ regressor.predictUnknownSet("raw_data/screen/screen_hutoswine.csv")
 regressor.exportUnknownSet("raw_data/screen/screen_hutoswine_pred.csv")
 regressor.printSplitTest(seed=777)
 regressor.visualizePredictions()
+
+
+import features.rawDataProcess as fm
+dp = fm.rawDataProcess()
+dp.loadFoldChangeTable("raw_data/master_short.fasta", "raw_data/carine_corrected_titers.csv")
+dp.defineFeatures()
+dp.createUnknownComparison("raw_data/screen/76777.fasta", selfCompare = False)
+#test = dp.testSetFeatures
+dp.exportTestSetFeatures("raw_data/screen/screen_76777.csv")
+regressor.predictUnknownSet("raw_data/screen/screen_76777.csv")
+regressor.exportUnknownSet("raw_data/screen/screen_76777_pred.csv")
